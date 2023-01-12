@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+
+ {% block content %} 
+<h1 align="center">Posts</h1>
+<p>Logged in as {{ user }}.</p>
+<br>
+
+<div class="form-group">
+    <label for="sel1">Select category:</label>
+    <select id="categories" name="categories">
+        <option value="all">ALL</option>
+        {% for category in categories %}
+            <option>{{ category["category"]}}</option>
+        {% endfor %}
+    </select>
+    <button class="btn btn-primary" type="button" onclick="change_category(categories.value)">Go</button>
+  </div> 
+<br>
+<br>
+<ul class="list-group list-group-flush" id="posts">
+    {% if posts %}
+        {% for post in posts %}
+            
+            <li class="list-group-item">
+                <h3><b>{{ post["title"] }}</b> | <small>{{ post["category"] }}</small></h3>
+                <p>{{ post["data"]|safe }}</p>
+                <p><small>&nbsp;&nbsp;&nbsp;-&nbsp;{{ post["username"] }} </small></p>   
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
+
+<input type="hidden" id="user" value={{ user }}>
+
+<script type="text/javascript">
+ function change_category(category) {
+     window.location.assign(`?category=${category}`)
+ }
+
+</script>
+
+{% block modal %} {% endblock %}
+
+{% block script %} {% endblock %}
+{% endblock %}

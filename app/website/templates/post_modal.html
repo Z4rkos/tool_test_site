@@ -1,0 +1,58 @@
+{% extends "home.html" %}
+
+{% block modal %}
+
+<div class="modal fade" id="post_modal" tabindex="-1" role="dialog" aria-labelledby="post_modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="post_modal_label">New Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="window.location.href = '/'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <div class="form-group">
+            <label for="title" class="col-form-label">Title:</label>
+            <input type="text" name="title" class="form-control" id="title">
+          </div>
+          <div class="form-group">
+            <label for="data" class="col-form-label">Data:</label>
+            <textarea class="form-control" name="data" id="data"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="category" class="col-form-label">Category:</label>
+            <input type="text" name="category" class="form-control" id="category">
+          </div>
+          <input type="hidden" name="username" id="username" value={{ user }}>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '/'">Close</button>
+            <button type="submit" class="btn btn-primary">Make Post</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+crossorigin="anonymous">
+</script>
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+$(document).ready(function() {
+    console.log("test")
+    $("#post_modal").modal("show")
+})
+
+</script>
+{% endblock %}
+
