@@ -1,5 +1,4 @@
 from flask import Flask
-from os import path
 from flask_mysqldb import MySQL
 
 
