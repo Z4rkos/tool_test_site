@@ -20,7 +20,7 @@ Use docker-compose to build and start:
 ```
 docker-compose up
 ```
-NOTE: It will restart a number of times when it initially get's built as MySQL uses alot longer time to start compared to the website.
+NOTE: It will restart a number of times when it initially gets built as the website starts alot quicker than MySQL.
 
 
 ## Vulnerabilities:
@@ -30,4 +30,4 @@ NOTE: It will restart a number of times when it initially get's built as MySQL u
 - XSS
 
 
-Im not really doing anything with this atm, just wanted to put it up here, but at some point I'll add some more vulnerabilities.
+Im not really doing anything with it atm, just wanted to put it up here, but at some point I'll add some more vulnerabilities.
